@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>All Student Records</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>HCA</th>
+            <th>MMA</th>
+            <th>NS</th>
+            <th>ES IoT</th>
+            <th>RES</th>
+            <th>ST</th>
+            <th>Average</th>
+            <th>Grade</th>
+            <th>Actions</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.student_name }}</td>
+            <td>{{ student.hca }}</td>
+            <td>{{ student.mma }}</td>
+            <td>{{ student.ns }}</td>
+            <td>{{ student.esiot }}</td>
+            <td>{{ student.res }}</td>
+            <td>{{ student.st }}</td>
+            <td>{{ student.average|round(2) }}</td>
+            <td>{{ student.overall_grade }}</td>
+            <td>
+                <a href="{{ url_for('edit_student', id=student.id) }}">Edit</a> |
+                <a href="{{ url_for('delete_student', id=student.id) }}" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="{{ url_for('create_student') }}">Add New Student</a></p>
+</div>
+</body>
+</html>

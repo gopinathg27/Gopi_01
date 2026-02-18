@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Edit Student Marks</h2>
+    <form method="POST">
+        <table>
+            <tr>
+                <td>Student Name</td>
+                <td><input type="text" name="student_name" value="{{ student.student_name }}" required></td>
+            </tr>
+            <tr>
+                <td>Health Care Analytics</td>
+                <td><input type="number" name="num1" value="{{ student.hca }}" required></td>
+            </tr>
+            <tr>
+                <td>Multimedia and Animation</td>
+                <td><input type="number" name="num2" value="{{ student.mma }}" required></td>
+            </tr>
+            <tr>
+                <td>Network Security</td>
+                <td><input type="number" name="num3" value="{{ student.ns }}" required></td>
+            </tr>
+            <tr>
+                <td>Embedded System & IoT</td>
+                <td><input type="number" name="num4" value="{{ student.esiot }}" required></td>
+            </tr>
+            <tr>
+                <td>Renewable Energy System</td>
+                <td><input type="number" name="num5" value="{{ student.res }}" required></td>
+            </tr>
+            <tr>
+                <td>Storage Technology</td>
+                <td><input type="number" name="num6" value="{{ student.st }}" required></td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" value="Update Student">
+    </form>
+    <p><a href="{{ url_for('view_students') }}">Back to Students List</a></p>
+</div>
+</body>
+</html>
