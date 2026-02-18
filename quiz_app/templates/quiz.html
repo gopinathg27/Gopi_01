@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+<div class="form-card">
+    <h2>Data Science Quiz</h2>
+    <div class="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <form method="POST" oninput="updateProgress()">
+        {% set current_unit = "" %}
+        {% for q in questions %}
+            {% if current_unit != q.unit %}
+                <h3>{{ q.unit }}</h3>
+                {% set current_unit = q.unit %}
+            {% endif %}
+            <div class="question-card">
+                <p><strong>{{ loop.index }}. {{ q.question }}</strong></p>
+                <label><input type="radio" name="q{{ q.id }}" value="1"> {{ q.option1 }}</label>
+                <label><input type="radio" name="q{{ q.id }}" value="2"> {{ q.option2 }}</label>
+                <label><input type="radio" name="q{{ q.id }}" value="3"> {{ q.option3 }}</label>
+                <label><input type="radio" name="q{{ q.id }}" value="4"> {{ q.option4 }}</label>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit Quiz</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="form-card">
+    <h2>Staff Dashboard <a href="{{ url_for('staff_logout') }}"><button style="float:right;">Logout</button></a></h2>
+    <table border="1" width="100%" style="border-collapse: collapse;">
+        <tr style="background:#673ab7;color:white;">
+            <th>Name</th><th>Reg No</th><th>Email</th><th>Dept</th><th>Year</th><th>Marks</th>
+        </tr>
+        {% for s in student_results %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.reg_no }}</td>
+            <td>{{ s.email }}</td>
+            <td>{{ s.dept }}</td>
+            <td>{{ s.year }}</td>
+            <td>{{ s.marks }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

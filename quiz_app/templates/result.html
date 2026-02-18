@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="form-card">
+    <h2>Hello {{ name }}!</h2>
+    {% for unit, score in marks.items() %}
+        <div class="result-card">{{ unit }} : {{ score }}/10</div>
+    {% endfor %}
+    <h2>Total Score: {{ total }}/30</h2>
+    <a href="/"><button>Take Again</button></a>
+</div>
+</body>
+</html>
